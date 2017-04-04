@@ -1,3 +1,15 @@
 <h2>Login</h2>
 
+
+<div class="container"><br>
+  <%= bootstrap_form_tag url: login_path do %>
+    <%= label_tag :email %>
+    <%= text_field_tag :email %><br><br>
+    <%= label_tag :password %>
+    <%= password_field_tag :password %><br><br>
+    <%= submit_tag "Login", class: "btn btn-default" %>
+  <% end %>
+</div>
+<br />
+<br />
 <%= link_to 'Sign up', new_user_path %>
