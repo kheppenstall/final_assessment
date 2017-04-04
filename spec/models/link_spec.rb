@@ -2,8 +2,25 @@ require 'rails_helper'
 
 RSpec.describe Link, type: :model do
   context "validations" do
-    it { is_expected.to validate_presence_of :title }
-    it { is_expected.to validate_presence_of :url }
+    context 'url' do
+      it 'is invalid without http' do
+        link = Link.new(title: 'title', url: 'google.com')
+
+        expect(link).to be_invalid
+      end
+
+      it 'is valid with http' do
+        link = create(:link)
+
+        expect(link).to be_valid
+      end
+    end
+
+    it 'validates presence of title' do
+      link = Link.new(url: 'http://google.com')
+
+      expect(link).to be_invalid
+    end
   end
 
   context "associations" do
