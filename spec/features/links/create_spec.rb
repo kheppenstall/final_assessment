@@ -16,7 +16,6 @@ RSpec.feature 'Create link', js: true do
       click_on 'Add Link'
 
       expect(Link.count).to eq 1
-      expect(page).to have_content attrs[:url]
       expect(page).to have_content attrs[:title]
     end 
   end

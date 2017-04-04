@@ -15,7 +15,6 @@ RSpec.feature 'See list of links' do
 
       user_links.each do |link|
         expect(page).to have_content link.title
-        expect(page).to have_content link.url
       end
     end
 
@@ -23,7 +22,6 @@ RSpec.feature 'See list of links' do
       visit links_path
 
       expect(page).to_not have_content other_link.title
-      expect(page).to_not have_content other_link.url
     end
   end
 
