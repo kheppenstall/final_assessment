@@ -34,6 +34,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'better_errors'
   gem 'factory_girl_rails'
+  gem 'faker'
   gem 'shoulda-matchers'
   gem 'selenium-webdriver', '~> 2.53.4'
 end
