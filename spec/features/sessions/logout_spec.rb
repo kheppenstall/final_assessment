@@ -8,7 +8,6 @@ RSpec.feature 'Logout' do
   context 'logged in user on links index' do
     it 'logs user out' do
       visit root_path
-      save_and_open_page
 
       click_on 'Logout'
 

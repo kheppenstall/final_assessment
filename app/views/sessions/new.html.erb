@@ -1,5 +1,4 @@
-<h2>Login</h2>
-
+<h2>Login or Sign Up</h2>
 
 <div class="container"><br>
   <%= bootstrap_form_tag url: login_path do %>
@@ -10,6 +9,7 @@
     <%= submit_tag "Login", class: "btn btn-default" %>
   <% end %>
 </div>
-<br />
-<br />
+
+<br /><br />
+
 <%= link_to 'Sign up', new_user_path %>
