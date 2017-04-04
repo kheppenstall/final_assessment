@@ -11,7 +11,6 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path, success: 'Account created!'
     else
-      flash.now[:danger] = @user.errors.full_messages.first
       render :new
     end
   end
