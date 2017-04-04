@@ -15,4 +15,10 @@ class SessionsController < ApplicationController
       render :new
     end
   end
+
+  def destroy
+    reset_session
+    redirect_to login_path, warning: 'Logout successful'
+  end
+
 end
