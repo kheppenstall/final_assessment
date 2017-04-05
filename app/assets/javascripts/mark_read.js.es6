@@ -20,6 +20,8 @@ function markUnread(e) {
 function updateLinkStatusToUnread(link) {
   $('#' + link.id + ' .mark-as-unread').remove()
   $('#' + link.id).append(markAsRead())
+  $('#' + link.id + ' div').removeClass('true')
+  $('#' + link.id + ' div').addClass('false')
 }
 
 function markRead(e) {
@@ -39,6 +41,8 @@ function markRead(e) {
 function updateLinkStatus(link) {
   $('#' + link.id + ' .mark-as-read').remove()
   $('#' + link.id).append(markAsUnread())
+  $('#' + link.id + ' div').removeClass('false')
+  $('#' + link.id + ' div').addClass('true')
 }
 
 function markAsUnread() {
