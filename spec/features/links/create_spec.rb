@@ -13,10 +13,10 @@ RSpec.feature 'Create link', js: true do
 
       fill_in 'link[url]',   with: attrs[:url]
       fill_in 'link[title]', with: attrs[:title]
-      click_on 'Add Link'
+      click_on 'Submit'
 
-      expect(Link.count).to eq 1
       expect(page).to have_content attrs[:title]
+      expect(Link.count).to eq 1
     end 
   end
 
@@ -25,7 +25,7 @@ RSpec.feature 'Create link', js: true do
       visit root_path
 
       fill_in 'link[url]',   with: attrs[:url]
-      click_on 'Add Link'
+      click_on 'Submit'
 
       expect(Link.count).to eq 0
       expect(page).to have_content "Title can't be blank"
@@ -37,7 +37,7 @@ RSpec.feature 'Create link', js: true do
       visit root_path
 
       fill_in 'link[title]',   with: attrs[:title]
-      click_on 'Add Link'
+      click_on 'Submit'
 
       expect(Link.count).to eq 0
       expect(page).to have_content "Url can't be blank"
@@ -50,7 +50,7 @@ RSpec.feature 'Create link', js: true do
 
       fill_in 'link[title]',   with: attrs[:title]
       fill_in 'link[url]',     with: 'google.com'
-      click_on 'Add Link'
+      click_on 'Submit'
 
       expect(Link.count).to eq 0
       expect(page).to have_content "Invalid url"

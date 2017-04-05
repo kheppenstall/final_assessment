@@ -1,8 +1,10 @@
 class LinksController < ApplicationController
 
-  before_action :set_link, :set_links
+  before_action :set_link, only: [:edit, :update]
 
   def index
+    @link = Link.new
+    @links = current_user.links
   end
 
   def create
@@ -16,6 +18,18 @@ class LinksController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+     if @link.update(link_params)
+      redirect_to root_path, success: 'Link successfully edited'
+    else
+      flash.now[:danger] = @link.errors.full_messages.first
+      render :edit
+    end
+  end
+
   private
 
     def link_params
@@ -23,11 +37,6 @@ class LinksController < ApplicationController
     end
 
     def set_link
-      @link = Link.new
+      @link = current_user.links.find(params[:id])
     end
-
-    def set_links
-      @links = current_user.links
-    end
-
 end

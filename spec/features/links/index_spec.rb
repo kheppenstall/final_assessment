@@ -6,7 +6,7 @@ RSpec.feature 'See list of links' do
 
     let!(:user)       { create(:user) }
     let!(:user_links) { create_list(:link, 3, user: user) }
-    let!(:other_link) { create(:link) }
+    let!(:other_link) { create(:link, title: 'other title') }
 
     before { stub_login(user) }
 

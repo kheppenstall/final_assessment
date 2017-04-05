@@ -25,7 +25,7 @@ function postLink() {
 
 
 function bindSubmitListenerAndPostLink() {
-  $("#link-submit").on('click', function(event) {
+  $('.new-link-form #link-submit').on('click', function(event) {
     event.preventDefault();
     postLink();
    });
