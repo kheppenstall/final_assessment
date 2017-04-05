@@ -1,0 +1,13 @@
+<div class="container">
+  <% flash.each do |type, message| %>
+    <% if message %>
+      <div class="alert alert-<%= type %>">
+        <p><%= message %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<li>
+  <a href= <%= link.url %> ><%= link.title %></a><br>
+</li>

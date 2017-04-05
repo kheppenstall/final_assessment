@@ -8,7 +8,8 @@ class LinksController < ApplicationController
   def create
     link = current_user.links.new(link_params)
     if link.save
-      render partial: 'show', locals: {link: link}, layout: false
+      flash.now[:success] = 'Link added!'
+      render partial: 'flash_show', locals: {link: link}, layout: false
     else
       flash.now[:danger] = link.errors.full_messages.first
       render partial: 'shared/flash'
