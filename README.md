@@ -1,27 +1,40 @@
-# URLockBox
+## URLockBox - Kyle Heppenstall
 
-## MidModule Assessment
+### Description
 
-The URLockbox is a starter app for the mid-module assessment for backend engineering module4 at TuringSchool of Software and Design.
+[Production Site](https://guarded-beach-39889.herokuapp.com/)
 
-Be sure to get familiar with what is already done, and what is not. No features are complete, but there is some set up done for several features. Use commit history if that helps.
+[Github Repo](https://github.com/kheppenstall/final_assessment)
 
-### Testing your JS with Selenium
+The URLockbox is a the final assessment for backend engineering module4 at TuringSchool of Software and Design.
 
-The app has the `selenium-webdriver` gem listed in the `Gemfile` and setup in the `rails_helper.rb`
+Kyle's [Url Lockbox](https://gist.github.com/neight-allen/335dcfdc8fc258757357ce597eb9dbd1) assessment for Turing. The url lockbox provides a place for users to store links to review or visit them later. Users can create accounts, login, add links, and mark them as read or unread.
 
-#### Setup
+Tech stack: Ruby, Rails, PostgreSQL, RSpec, JQuery, Sass (scss), Heroku
 
-Everything will be installed with Bundle.
+### Dependencies 
 
-You will need to download version 46 of Firefox [here](https://www.softexia.com/windows/web-browsers/firefox-46). If you do have it, make sure it is on version 46. Selenium does not work with all versions of Firefox, so make sure that you are using Firefox 46 or else it will potentially cause you problems. 
+This project uses Ruby version 2.3+ with a PostgreSQL database.
 
-If you already have Firefox and it's on a version more recent than 46, the easiest way to downgrade is to uninstall Firefox then install version 46.
+### Getting Started
 
-#### Use
+Follow these steps in your terminal to clone the project on to your local machine and import the data.
 
-You can then write capybara feature tests and add `js: true` tag if you'd like your test to use the Selenium WebDriver rather than the default WebDriver.  Your tests will execute and recognize your JavaScript.
+  1. `cd` into the directory where you want the project in the terminal.
+  1. Run `git clone https://github.com/kheppenstall/final_assessment.git`
+  1. `cd temp_mid_mod` 
+  1. `bundle` to install the gems you need
+  1. `rake db:create` to create your PostgreSQL database
 
-If you're having problems troubleshooting asynchronous actions (like DOM changes after an AJAX request), [peruse this section of Capybara's docs](https://github.com/teamcapybara/capybara#asynchronous-javascript-ajax-and-friends)
+### Test suite
 
-It is highly suggested that you also check out the Capybara docs and and the section on [selenium-webdriver](https://github.com/teamcapybara/capybara#selenium).
+Follow these steps in your terminal to run our test suite and check out the coverage.
+
+  1. `rspec` to run the test suite
+  1. `open coverage/index.html` to view the test coverage in your browser
+
+### Hosting the site locally
+
+  1. From within the `temp_mid_mod` directory run `rails server` to start the server locally.
+  1. In your browser visit `http://localhost:3000/`)
+  1. Press `ctrl-c` to stop server.
