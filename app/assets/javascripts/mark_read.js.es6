@@ -1,12 +1,32 @@
 $( document ).ready(function(){
-  $("body").on("click", ".mark-as-read", markAsRead)
+  $("body").on("click", ".mark-as-read", markRead)
+  $("body").on("click", ".mark-as-unread", markUnread)
 })
 
-function markAsRead(e) {
+function markUnread(e) {
   e.preventDefault();
 
   var $link = $(this).parents('.link');
-  var linkId = $link.data('link-id');
+  var linkId = $link.attr('id');
+
+  $.ajax({
+    type: "PATCH",
+    url: "/api/v1/links/" + linkId,
+    data: { read: false },
+  }).then(updateLinkStatusToUnread)
+    .fail(displayFailure);
+}
+
+function updateLinkStatusToUnread(link) {
+  $('#' + link.id + ' .mark-as-unread').remove()
+  $('#' + link.id).append(markAsRead())
+}
+
+function markRead(e) {
+  e.preventDefault();
+
+  var $link = $(this).parents('.link');
+  var linkId = $link.attr('id');
 
   $.ajax({
     type: "PATCH",
@@ -17,8 +37,26 @@ function markAsRead(e) {
 }
 
 function updateLinkStatus(link) {
-  $(`.link[data-link-id=${link.id}]`).find(".read-status").text(link.read);
+  $('#' + link.id + ' .mark-as-read').remove()
+  $('#' + link.id).append(markAsUnread())
 }
+
+function markAsUnread() {
+  return(
+    `<div class='mark-as-unread'>
+      <a href="/">Mark as unread</a>
+    </div>`
+  )
+}
+
+function markAsRead() {
+  return(
+    `<div class='mark-as-read'>
+      <a href="/">Mark as read</a>
+    </div>`
+  )
+}
+
 
 function displayFailure(failureData){
   console.log("FAILED attempt to update Link: " + failureData.responseText);

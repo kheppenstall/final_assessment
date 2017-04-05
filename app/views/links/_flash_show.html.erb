@@ -8,7 +8,22 @@
   <% end %>
 </div>
 
-<h3>
-  <a href= <%= link.url %> ><%= link.title %></a><br>
-</h3>
-<%= link_to 'edit', edit_link_path(link) %>
+<div class='link' id=<%= link.id %> >
+
+  <h3>
+    <a href= <%= link.url %> ><%= link.title %></a><br>
+  </h3>
+
+  <%= link_to 'edit', edit_link_path(link) %>
+  
+  <% if link.read %>
+    <div class='mark-as-unread'>
+      <%= link_to 'Mark as unread', '/' %>
+    </div>
+  <% else %>
+    <div class='mark-as-read'>
+      <%= link_to 'Mark as read', '/' %>
+    </div>
+  <% end %>
+
+</div>
