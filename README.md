@@ -10,6 +10,8 @@ The URLockbox is a the final assessment for backend engineering module4 at Turin
 
 Kyle's [Url Lockbox](https://gist.github.com/neight-allen/335dcfdc8fc258757357ce597eb9dbd1) assessment for Turing. The url lockbox provides a place for users to store links to review or visit them later. Users can create accounts, login, add links, and mark them as read or unread. Users can also filter links using the case insensitive search field or by clicking 'Show Read' or 'Show Unread'.
 
+Links are a 'hot read' if they are a top ten url on the hot reads [site](https://pure-cliffs-71275.herokuapp.com/). The most frequently read url is the 'top read'
+
 Tech stack: Ruby, Rails, PostgreSQL, RSpec, JQuery, Sass (scss), Heroku
 
 ### Dependencies 
