@@ -2,10 +2,27 @@
 <h2>My Links</h2><br>
 <hr>
 
+<div id="link-search">
+  <label>Search
+    <input>
+  </label>
+</div>
+
+<div class='filter-links'>
+  <div id='show-read'>
+    <%= link_to 'Show Read', links_path %><br>
+  </div>
+  <div id='show-unread'>
+    <%= link_to 'Show Unead', links_path %>
+  </div>
+  <br><hr>
+</div>
+
+
 <div class='new-link-form'>
   <%= render partial: 'form' %>
 </div>
-<br>
+<br><hr>
 
 <div class='links-list'>
   <% @links.each do |link| %>
