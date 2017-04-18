@@ -71,7 +71,6 @@ function markAsRead() {
   )
 }
 
-
 function displayFailure(failureData){
   console.log("FAILED attempt to update Link: " + failureData.responseText);
 }

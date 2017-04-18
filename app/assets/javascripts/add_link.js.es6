@@ -23,7 +23,6 @@ function postLink() {
   })
 }
 
-
 function bindSubmitListenerAndPostLink() {
   $('.new-link-form #link-submit').on('click', function(event) {
     event.preventDefault();
