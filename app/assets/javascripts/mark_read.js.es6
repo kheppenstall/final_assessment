@@ -29,13 +29,23 @@ function markRead(e) {
 
   var $link = $(this).parents('.link');
   var linkId = $link.attr('id');
+  var url = $link.find('a').attr('href')
 
   $.ajax({
     type: "PATCH",
     url: "/api/v1/links/" + linkId,
     data: { read: true },
   }).then(updateLinkStatus)
+    .then(postToHotReads(url))
     .fail(displayFailure);
+}
+
+function postToHotReads(url) {
+  $.ajax({
+    type: "POST",
+    url: "https://pure-cliffs-71275.herokuapp.com/api/v1/links",
+    data: $.param({ link: { url: url } }),
+  }).fail(displayFailure);
 }
 
 function updateLinkStatus(link) {
